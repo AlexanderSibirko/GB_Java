@@ -31,7 +31,7 @@ public class Research {
         return result;
     }
 
-    public void setGeoTree(IGeoTree geoTree){
+    public void setGeoTree(IGeoTree geoTree) {
         this.tree = geoTree.getTree();
     }
 }

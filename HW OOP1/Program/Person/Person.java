@@ -105,7 +105,8 @@ public class Person implements PetCaller, CupBoardInteractor {
                     System.out.printf("%s не смог положить '%s' в '%s' \n", this.firstName, item, cupboard);
                 }
             } else {
-                System.out.printf("%s не может положить '%s' в '%s' так как '%s' закрыт\n", this.firstName, item, cupboard, cupboard);
+                System.out.printf("%s не может положить '%s' в '%s' так как '%s' закрыт\n", this.firstName, item,
+                        cupboard, cupboard);
             }
         }
     }
