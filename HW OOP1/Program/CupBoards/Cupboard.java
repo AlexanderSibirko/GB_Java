@@ -59,7 +59,7 @@ public class Cupboard implements ItemManager {
         for (int i = 0; i < this.items.size(); i++) {
             sb.append("\n  " + (i + 1) + ". " + this.items.get(i));
         }
-        return sb.toString() + "\n";
+        return sb.append("\n").toString();
     }
 
     @Override
