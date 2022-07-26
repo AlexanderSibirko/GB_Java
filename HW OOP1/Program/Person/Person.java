@@ -55,17 +55,12 @@ public class Person implements PetCaller, CupBoardInteractor {
     // имлепментируем cupBoardInteractor
     @Override
     public boolean addItem(Item item) {
-        items.add(item);
-        return true;
+        return items.add(item);
     }
 
     @Override
     public boolean removeItem(Item item) {
-        if (items.contains(item)) {
-            this.items.remove(item);
-            return true;
-        }
-        return false;
+        return this.items.remove(item);
     }
 
     @Override
