@@ -1,6 +1,6 @@
 package Program.Item;
 
 public interface ItemManager {
-    boolean addItem(Item item);
-    boolean removeItem(Item item);
+    addItem(Item item);
+    removeItem(Item item);
 }
