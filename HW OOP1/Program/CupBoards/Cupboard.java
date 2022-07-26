@@ -71,15 +71,10 @@ public class Cupboard implements ItemManager {
     @Override
     public boolean addItem(Item item) {
         this.items.add(item);
-        return true;
     }
 
     @Override
     public boolean removeItem(Item item) {
-        if (items.contains(item)) {
-            this.items.remove(item);
-            return true;
-        }
-        return false;
+        return this.items.remove(item);
     }
 }
