@@ -39,7 +39,7 @@ public class Person implements PetCaller, CupBoardInteractor {
         for (Item item : items) {
             sb.append(item + ", ");
         }
-        return sb.substring(0, sb.length() - 2).toString() + "\n";
+        return sb.substring(0, sb.length() - 2).append("\n").toString();
     }
 
     // имплементация интерфейса зов питомцев
