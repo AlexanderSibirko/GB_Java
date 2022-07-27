@@ -55,6 +55,8 @@ public class Person implements PetCaller, CupBoardInteractor {
     // имлепментируем cupBoardInteractor
     @Override
     public boolean addItem(Item item) {
+        if (this.items.contains(item))
+            return false;
         return items.add(item);
     }
 
