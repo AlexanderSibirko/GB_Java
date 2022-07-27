@@ -59,7 +59,7 @@ public class Cupboard implements ItemManager {
         for (int i = 0; i < this.items.size(); i++) {
             sb.append("\n  " + (i + 1) + ". " + this.items.get(i));
         }
-        return sb.toString() + "\n";
+        return sb.append("\n").toString();
     }
 
     @Override
@@ -70,16 +70,13 @@ public class Cupboard implements ItemManager {
     // имплементация ItemManager'а
     @Override
     public boolean addItem(Item item) {
-        this.items.add(item);
-        return true;
+        if (this.items.contains(item))
+            return false;
+        return this.items.add(item);
     }
 
     @Override
     public boolean removeItem(Item item) {
-        if (items.contains(item)) {
-            this.items.remove(item);
-            return true;
-        }
-        return false;
+        return this.items.remove(item);
     }
 }

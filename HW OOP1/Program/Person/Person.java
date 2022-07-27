@@ -36,10 +36,13 @@ public class Person implements PetCaller, CupBoardInteractor {
     public String getItems() {
         StringBuilder sb = new StringBuilder();
         sb.append("У " + this.firstName + " в корманах: ");
+        String separator = "";
         for (Item item : items) {
-            sb.append(item + ", ");
+            sb.append(separator);
+            separator = ", ";
+            sb.append(item);
         }
-        return sb.substring(0, sb.length() - 2).toString() + "\n";
+        return sb.append("\n").toString();
     }
 
     // имплементация интерфейса зов питомцев
@@ -55,17 +58,14 @@ public class Person implements PetCaller, CupBoardInteractor {
     // имлепментируем cupBoardInteractor
     @Override
     public boolean addItem(Item item) {
-        items.add(item);
-        return true;
+        if (this.items.contains(item))
+            return false;
+        return items.add(item);
     }
 
     @Override
     public boolean removeItem(Item item) {
-        if (items.contains(item)) {
-            this.items.remove(item);
-            return true;
-        }
-        return false;
+        return this.items.remove(item);
     }
 
     @Override
