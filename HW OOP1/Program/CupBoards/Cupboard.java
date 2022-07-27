@@ -70,7 +70,9 @@ public class Cupboard implements ItemManager {
     // имплементация ItemManager'а
     @Override
     public boolean addItem(Item item) {
-        this.items.add(item);
+        if (this.items.contains(item))
+            return false;
+        return this.items.add(item);
     }
 
     @Override
