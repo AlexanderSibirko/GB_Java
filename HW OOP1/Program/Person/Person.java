@@ -36,10 +36,13 @@ public class Person implements PetCaller, CupBoardInteractor {
     public String getItems() {
         StringBuilder sb = new StringBuilder();
         sb.append("У " + this.firstName + " в корманах: ");
+        String separator = "";
         for (Item item : items) {
-            sb.append(item + ", ");
+            sb.append(separator);
+            separator = ", ";
+            sb.append(item);
         }
-        return sb.substring(0, sb.length() - 2).append("\n").toString();
+        return sb.append("\n").toString();
     }
 
     // имплементация интерфейса зов питомцев
