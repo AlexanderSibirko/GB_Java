@@ -23,7 +23,7 @@ public class Research {
         var result = new ArrayList<Person>();
 
         for (RelationsNode t : tree) {
-            if (t.getPerson2() == person
+            if (t.getPerson2().equals(person)
                     && t.getRelation() == relation) {
                 result.add(t.getPerson1());
             }
