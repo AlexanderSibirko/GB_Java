@@ -83,31 +83,39 @@ public class Person implements PetCaller, CupBoardInteractor {
     @Override
     public void takeItem(Cupboard cupboard, Item item) {
         if (cupboard.isOpenStatus()) {
-            if (cupboard.removeItem(item)) {
-                this.addItem(item);
-                System.out.printf("%s забрал '%s' из '%s' \n", this.firstName, item, cupboard);
-            } else {
-                System.out.printf("%s не смог забрать '%s' из '%s' \n", this.firstName, item, cupboard);
-            }
+            takeItemFromCupboard(cupboard,item);
         } else {
             System.out.printf("%s не может забрать '%s' т.к. '%s' закрыт\n", this.firstName, item, cupboard);
         }
     }
 
+    private void takeItemFromCupboard(Cupboard cupboard, Item item){
+        if (cupboard.removeItem(item)) {
+            this.addItem(item);
+            System.out.printf("%s забрал '%s' из '%s' \n", this.firstName, item, cupboard);
+        } else {
+            System.out.printf("%s не смог забрать '%s' из '%s' \n", this.firstName, item, cupboard);
+        }
+    }
+
     @Override
     public void putItem(Cupboard cupboard, Item item) {
-        if (items.contains(item)) { // если у человека есть предмет
+        if (items.contains(item)) { //если у человека есть предмет
             if (cupboard.isOpenStatus()) {
-                if (cupboard.addItem(item)) { // если получилось его положить в шкаф
-                    this.removeItem(item); // убираем у человека
-                    System.out.printf("%s положил '%s' в '%s' \n", this.firstName, item, cupboard);
-                } else {
-                    System.out.printf("%s не смог положить '%s' в '%s' \n", this.firstName, item, cupboard);
-                }
+                putItemIntoCupboard(cupboard, item);
             } else {
                 System.out.printf("%s не может положить '%s' в '%s' так как '%s' закрыт\n", this.firstName, item,
                         cupboard, cupboard);
             }
+        }
+    }
+
+    private void putItemIntoCupboard(Cupboard cupboard, Item item){
+        if (cupboard.addItem(item)) { // если получилось его положить в шкаф
+            this.removeItem(item); // убираем у человека
+            System.out.printf("%s положил '%s' в '%s' \n", this.firstName, item, cupboard);
+        } else {
+            System.out.printf("%s не смог положить '%s' в '%s' \n", this.firstName, item, cupboard);
         }
     }
 
