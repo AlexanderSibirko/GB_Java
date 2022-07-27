@@ -66,6 +66,7 @@ public class Start {
 
         // Человек и шкаф
         Item ball = new Item("Мяч"); // Создём предметы
+        Item ball2= new Item("Мяч"); 
         Item coin = new Item("Монетка");
         Item panckace = new Item("Блин");
         Item yogurt = new Item("Йогурт");
@@ -78,7 +79,15 @@ public class Start {
 
         pasha.addItem(coin); // добавляем предметы человеку
         pasha.addItem(ball);
-        System.out.println(pasha.getItems()); // смотрим что у паши в карманах
+        pasha.addItem(ball2);
+        pasha.addItem(ball2);
+        pasha.addItem(ball2);
+        System.out.println(pasha.getItems()); // смотрим что у паши в карманах, будет два мяча (один и тот же мяч не добавляется много раз)
+
+        pasha.removeItem(ball2);
+        pasha.removeItem(ball2);
+        pasha.removeItem(ball2);
+        System.out.println(pasha.getItems()); // смотрим что у паши в карманах, убрался только второй мяч ball2
 
         justCupboard.addItem(elefant); // напрямую добавляем слона в шкаф (потому-что можем)
 
