@@ -17,9 +17,9 @@ import TaskNotepad.Model.TaskRepo;
 import TaskNotepad.View.View;
 
 public class Presenter<M extends TaskRepo<Task>, V extends View> {
-    String knownDataFiles = "csv json xml";
-    M model;
-    V view;
+    private final String knownDataFiles = "csv json xml";
+    private M model;
+    private V view;
 
     public Presenter(M m, V v) {
         model = m;
