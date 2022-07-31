@@ -1,6 +1,5 @@
 package TaskNotepad.View;
 
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class ConsoleView implements View {
