@@ -8,7 +8,7 @@ public class JsonSave implements Saver {
 
     @Override
     public boolean save(ArrayList<Task> data, String path) {
-        return false;
+        throw new UnsupportedOperationException("Not yet implemented");
         // TODO Auto-generated method stub
     }
 

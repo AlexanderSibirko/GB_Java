@@ -27,7 +27,7 @@ public class CsvLoad implements Loader {
             }
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
+            return tasks;
         }
         return tasks;
     }

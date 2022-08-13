@@ -7,6 +7,8 @@ import TaskNotepad.ExportImport.CsvLoad;
 import TaskNotepad.ExportImport.CsvSave;
 import TaskNotepad.ExportImport.JsonLoad;
 import TaskNotepad.ExportImport.JsonSave;
+import TaskNotepad.ExportImport.Loader;
+import TaskNotepad.ExportImport.Saver;
 import TaskNotepad.ExportImport.XmlLoad;
 import TaskNotepad.ExportImport.XmlSave;
 import TaskNotepad.Model.ActiveUser;
@@ -95,22 +97,22 @@ public class Presenter<M extends TaskRepo<Task>, V extends View> {
         String path = askLoadFilePath();
         switch (path.substring(path.indexOf('.') + 1)) {
             case "csv":
-                if (!this.model.load(new CsvLoad(), path)) {
-                    view.printOutput("Загрузка фаила не удалась\n");
-                }
+                tryLoad(new CsvLoad(), path);
                 break;
 
             case "json":
-                if (!this.model.load(new JsonLoad(), path)) { // NYI
-                    view.printOutput("Загрузка фаила не удалась\n");
-                }
+                tryLoad(new JsonLoad(), path);
                 break;
 
             case "xml":
-                if (!this.model.load(new XmlLoad(), path)) { // NYI
-                    view.printOutput("Загрузка фаила не удалась\n");
-                }
+                tryLoad(new XmlLoad(), path);
                 break;
+        }
+    }
+
+    private void tryLoad(Loader format, String path) {
+        if (!this.model.load(format, path)) {
+            view.printOutput("Загрузка фаила не удалась\n");
         }
     }
 
@@ -138,28 +140,24 @@ public class Presenter<M extends TaskRepo<Task>, V extends View> {
         String path = askSaveFilePath();
         switch (path.substring(path.indexOf('.') + 1)) {
             case "csv":
-                if (!this.model.save(new CsvSave(), path)) {
-                    view.printOutput("Cохранение фаила не удалось\n");
-                } else {
-                    view.printOutput("Cохранение удалось\n");
-                }
+                trySave(new CsvSave(), path);
                 break;
 
             case "json":
-                if (!this.model.save(new JsonSave(), path)) {
-                    view.printOutput("Cохранение фаила не удалось\n");
-                } else {
-                    view.printOutput("Cохранение удалось\n");
-                }
+                trySave(new JsonSave(), path);
                 break;
 
             case "xml":
-                if (!this.model.save(new XmlSave(), path)) {
-                    view.printOutput("Cохранение фаила не удалось\n");
-                } else {
-                    view.printOutput("Cохранение удалось\n");
-                }
+                trySave(new XmlSave(), path);
                 break;
+        }
+    }
+
+    private void trySave(Saver format, String path) {
+        if (!this.model.save(format, path)) {
+            view.printOutput("Cохранение фаила не удалось\n");
+        } else {
+            view.printOutput("Cохранение удалось\n");
         }
     }
 
@@ -179,22 +177,24 @@ public class Presenter<M extends TaskRepo<Task>, V extends View> {
         return null;
     }
 
-    private void addTask() {
+    private Task newTask() {
         String name = view.getInput("Введите название 'Задачи':");
         String description = view.getInput("Введите описание 'Задачи':");
         TaskPriority taskPriority = checkPrirotyInput();
         LocalDateTime deadLineTime = checkDateInput();
-        model.add(new Task(name, description, taskPriority, deadLineTime, ActiveUser.activeUserCopy().getFIO()));
+        return new Task(name, description, taskPriority, deadLineTime, ActiveUser.activeUserCopy().getFIO());
+    }
+
+    private void addTask() {
+        model.add(newTask());
     }
 
     private void updTask() {
         int id = checkIdInput();
-        String name = view.getInput("Введите название 'Задачи':");
-        String description = view.getInput("Введите описание 'Задачи':");
-        TaskPriority taskPriority = checkPrirotyInput();
-        LocalDateTime deadLineTime = checkDateInput();
-        model.updateById(id,
-                new Task(name, description, taskPriority, deadLineTime, ActiveUser.activeUserCopy().getFIO()));
+        if (id > 0) {
+            model.updateById(id,
+                    newTask());
+        }
     }
 
     private void removeTask() {

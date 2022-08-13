@@ -8,7 +8,7 @@ public class XmlLoad implements Loader {
 
     @Override
     public ArrayList<Task> load(String path) {
-        return null;
+        throw new UnsupportedOperationException("Not yet implemented");
         // TODO Auto-generated method stub
     }
 }
