@@ -15,6 +15,8 @@ public class ChatAdmin extends ChatUser implements AdminRights {
     @Override
     public void removeUserByName(String name) {
         ChatViewer removedUser = (ChatViewer) chatroom.removeUserByName(name);
-        removedUser.setChatroom(null);
+        if (removedUser != null) {
+            removedUser.setChatroom(null);
+        }
     }
 }
