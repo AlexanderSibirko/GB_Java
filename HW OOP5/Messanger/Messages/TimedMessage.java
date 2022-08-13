@@ -4,7 +4,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class TimedMessage extends Message {
-    LocalTime timeCreated;
+    private LocalTime timeCreated;
 
     public TimedMessage(String text) {
         super(text);

@@ -5,7 +5,7 @@ import Messanger.Users.ChatViewer;
 import Messanger.Users.User;
 
 public class ChatChanel implements Chat {
-    Repository<User> repository;
+    private Repository<User> repository;
 
     public ChatChanel(ArrayListChatUsersRepo arrayListChatUsersRepo) {
         this.repository = arrayListChatUsersRepo;

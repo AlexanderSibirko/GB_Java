@@ -3,7 +3,7 @@ package Messanger.Chats;
 import java.util.ArrayList;
 
 public abstract class ArrayListRepo<T> implements Repository<T> {
-    ArrayList<T> repo = new ArrayList<>();
+    protected ArrayList<T> repo = new ArrayList<>();
 
     @Override
     public void add(T user) {
