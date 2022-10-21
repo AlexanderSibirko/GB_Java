@@ -1,10 +1,9 @@
-package JavaArchitectHW2.Equipments;
+package JavaArchitectHW2.Equipments.Weapons;
 
 public class SimpleBow extends Bow{
 
     public SimpleBow(String name, int damage, int range) {
         super(name, damage, range);
-        //TODO Auto-generated constructor stub
     }
     
 }

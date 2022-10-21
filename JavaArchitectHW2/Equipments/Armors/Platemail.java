@@ -1,4 +1,4 @@
-package JavaArchitectHW2.Equipments;
+package JavaArchitectHW2.Equipments.Armors;
 
 public class Platemail extends Armor {
 

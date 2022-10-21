@@ -1,4 +1,4 @@
-package JavaArchitectHW2.Equipments;
+package JavaArchitectHW2.Equipments.Weapons;
 
 public abstract class Bow extends Weapon {
 
@@ -7,7 +7,6 @@ public abstract class Bow extends Weapon {
     public Bow(String name, int damage, int range) {
         super(name, damage);
         this.range = range;
-        //TODO Auto-generated constructor stub
     }
     
 }

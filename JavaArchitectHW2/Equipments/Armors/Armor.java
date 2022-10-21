@@ -1,4 +1,4 @@
-package JavaArchitectHW2.Equipments;
+package JavaArchitectHW2.Equipments.Armors;
 
 public abstract class Armor {
     protected String name;
@@ -7,5 +7,9 @@ public abstract class Armor {
     public Armor(String name, int defence) {
         this.name = name;
         this.defence = defence;
+    }
+
+    public String getName() {
+        return name;
     }
 }
