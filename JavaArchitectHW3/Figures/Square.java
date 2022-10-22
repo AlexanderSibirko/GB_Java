@@ -3,8 +3,7 @@ package JavaArchitectHW3.Figures;
 public class Square extends Shape{
     private double side_length;
 
-    public Square(double side_length) throws Exception {
-        if (side_length <= 0) {throw new Exception("Не получилось создать квадрат. Длинна стороны не может быть отрицательной");}
+    public Square(double side_length) {
         this.side_length = side_length;
     }
 

@@ -4,10 +4,7 @@ public class Rectangle extends Shape {
     private double side_one_length;
     private double side_two_length;
 
-    public Rectangle(double side_one_length, double side_two_length) throws Exception {
-        if (side_one_length <= 0 || side_two_length <= 0) {
-            throw new Exception("Не получилось создать прямогульник. Один из размеров был отрицательны.");
-        };
+    public Rectangle(double side_one_length, double side_two_length) {
         this.side_one_length = side_one_length;
         this.side_two_length = side_two_length;
     }

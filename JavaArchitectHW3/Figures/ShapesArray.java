@@ -12,11 +12,7 @@ public class ShapesArray {
         content.add(shape);
     }
 
-    public String printAllPerimetrs(){
-        return "";
-    }
-
-    public String calcAllPerimetrs(){ //ToDo
+    public String calcAllPerimetrs(){
         StringBuilder sb = new StringBuilder();
         for (Shape shape : content) {
             sb.append(String.format("Фигура: %s Периметр фигуры: %f \n", shape.description(), shape.calcPerimetr()));
@@ -24,7 +20,7 @@ public class ShapesArray {
         return sb.toString();
     }
 
-    public String calcAllAreas(){ //ToDo
+    public String calcAllAreas(){
         StringBuilder sb = new StringBuilder();
         for (Shape shape : content) {
             sb.append(String.format("Фигура: %s Площадь фигуры: %f \n", shape.description(), shape.calcArea()));

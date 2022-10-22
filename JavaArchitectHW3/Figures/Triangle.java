@@ -5,17 +5,7 @@ public class Triangle extends Shape{
     private double side_two_length;
     private double side_three_length;
     
-    public Triangle(double side_one_length, double side_two_length, double side_three_length) throws Exception {
-        if (side_one_length <= 0 || side_two_length <= 0 || side_three_length <= 0){
-            throw new Exception("Не смог создать треугольник, одна из сторон отрицательная");
-        }
-
-        if (side_one_length + side_two_length < side_three_length 
-            || side_two_length + side_three_length < side_one_length
-            || side_one_length + side_three_length < side_two_length){
-            throw new Exception("Не смог создать треугольник, одна из сторон больше суммы двух других");
-        }
-
+    public Triangle(double side_one_length, double side_two_length, double side_three_length) {
         this.side_one_length = side_one_length;
         this.side_two_length = side_two_length;
         this.side_three_length = side_three_length;

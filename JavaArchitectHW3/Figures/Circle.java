@@ -3,10 +3,9 @@ package JavaArchitectHW3.Figures;
 public class Circle extends Shape {
     private double radius;
 
-    public Circle(double radius) throws Exception{
-        if (radius <= 0) {throw new Exception("Не получилось создать круг. Радиус должен быть положительным.");}
+    public Circle(double radius) {
         this.radius = radius;
-    };
+    }
 
     @Override
     public double calcPerimetr() {
