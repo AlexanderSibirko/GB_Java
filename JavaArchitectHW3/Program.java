@@ -1,16 +1,14 @@
 package JavaArchitectHW3;
 
-import java.util.ArrayList;
-
 import JavaArchitectHW3.Figures.Circle;
 import JavaArchitectHW3.Figures.Rectangle;
-import JavaArchitectHW3.Figures.Shapes;
+import JavaArchitectHW3.Figures.ShapesArray;
 import JavaArchitectHW3.Figures.Square;
 import JavaArchitectHW3.Figures.Triangle;
 
 public class Program {
     public static void main(String[] args) {
-        ArrayList<Shapes> shapesArray = new ArrayList<>();
+        ShapesArray shapesArray = new ShapesArray();
 
         try {
             shapesArray.add(new Circle(3));    
@@ -46,9 +44,10 @@ public class Program {
             e.printStackTrace();
         }
 
-
-        for (Shapes shapes : shapesArray) {
-            System.out.printf("ТипФигуры: %s Площадь фигуры: %f Периметр фигуры: %f \n", shapes.description(), shapes.calcArea(), shapes.calcPerimetr());
-        }
+        System.out.println("Получим подсчёт периметров всех фигур");
+        System.out.print(shapesArray.calcAllPerimetrs());
+        
+        System.out.println("Получим подсчёт площадей всех фигур");
+        System.out.print(shapesArray.calcAllAreas());
     }
 }

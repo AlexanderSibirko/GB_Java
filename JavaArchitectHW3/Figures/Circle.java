@@ -1,6 +1,6 @@
 package JavaArchitectHW3.Figures;
 
-public class Circle extends Shapes {
+public class Circle extends Shape {
     private double radius;
 
     public Circle(double radius) throws Exception{

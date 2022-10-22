@@ -1,6 +1,6 @@
 package JavaArchitectHW3.Figures;
 
-public class Triangle extends Shapes{
+public class Triangle extends Shape{
     private double side_one_length;
     private double side_two_length;
     private double side_three_length;

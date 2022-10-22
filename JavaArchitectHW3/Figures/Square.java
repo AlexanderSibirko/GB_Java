@@ -1,6 +1,6 @@
 package JavaArchitectHW3.Figures;
 
-public class Square extends Shapes{
+public class Square extends Shape{
     private double side_length;
 
     public Square(double side_length) throws Exception {

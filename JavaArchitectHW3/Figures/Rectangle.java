@@ -1,6 +1,6 @@
 package JavaArchitectHW3.Figures;
 
-public class Rectangle extends Shapes {
+public class Rectangle extends Shape {
     private double side_one_length;
     private double side_two_length;
 
