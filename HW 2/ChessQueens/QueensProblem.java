@@ -17,20 +17,21 @@ public class QueensProblem {
    * зарятые диагоняли обратные,
    * номер решения
    */
-  public static int size = 8;
+  private int size;
   private int[] queensPositions;
   private Boolean[] occupiedCols;
   private Boolean[] occupiedDi1;
   private Boolean[] occupiedDi2;
   private int count = 0;
+  private int steps;
 
   // создание класса и формирование базовых перменных
-  public QueensProblem() {
-    // size = N;
-    this.queensPositions = new int[size];
-    this.occupiedCols = new Boolean[size];
-    this.occupiedDi1 = new Boolean[2 * size - 1];
-    this.occupiedDi2 = new Boolean[2 * size - 1];
+  public QueensProblem(int N) {
+    this.size = N;
+    this.queensPositions = new int[this.size];
+    this.occupiedCols = new Boolean[this.size];
+    this.occupiedDi1 = new Boolean[2 * this.size - 1];
+    this.occupiedDi2 = new Boolean[2 * this.size - 1];
     Arrays.fill(queensPositions, 0);
     Arrays.fill(occupiedCols, false);
     Arrays.fill(occupiedDi1, false);
@@ -46,9 +47,21 @@ public class QueensProblem {
 
   // печатаем найденое решение
   private void printSolution() {
-    System.out.println("Найдено " + count + " решение:");
+    System.out.println("Найдено " + count + " решение (на " + steps + " шаге):");
+    System.out.println("_".repeat(size*4+1));
     for (int i = 0; i < size; i++) {
-      System.out.println(i + 1 + " Ферзь на позиции: " + i + ", " + queensPositions[i]);
+      StringBuilder solutionLine = new StringBuilder();
+      for (int j = 0; j < size; j++) {
+        solutionLine.append("|");
+        if (j == queensPositions[i]) {
+          solutionLine.append(" @ ");
+        } else {
+          solutionLine.append("   ");
+        }
+      }
+      solutionLine.append("|");
+      System.out.println(solutionLine.toString());  
+      System.out.println("-".repeat(size*4+1));
     }
   }
 
@@ -63,6 +76,7 @@ public class QueensProblem {
   // ставим Ферзей, методом поиска с возвратом
   private void placing(int row, int limit) {
     for (int col = 0; col < size; col++) {
+      steps += 1;
       if (!this.isOccupied(row, col)) {
         this.queensPositions[row] = col;
         this.setOccupation(row, col, true);
