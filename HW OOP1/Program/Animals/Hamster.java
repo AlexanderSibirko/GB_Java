@@ -12,6 +12,6 @@ public class Hamster extends Pets {
 
     @Override
     public void hearCall(String words) {
-        // хомяк никогда никак не реагирует, так как хомяк
+        System.out.printf("%s никак не реагирует...\n", this.name);
     }
 }

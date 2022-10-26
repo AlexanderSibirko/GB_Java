@@ -1,7 +1,7 @@
 package Program.GeoTrees;
 
 public enum RelationType {
-    PARENTOF,
-    HUSBANDWIFEOF,
-    CHILDOF
+    PARENT_OF,
+    HUSBAND_WIFE_OF,
+    CHILD_OF
 }

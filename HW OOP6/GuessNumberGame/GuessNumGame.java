@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Random;
 
 public class GuessNumGame implements Model, Serializable {
-    private int tryCount;
+    private int tryCount = 5;
     private int randomNum;
     private boolean gamestate;
 
@@ -27,22 +27,22 @@ public class GuessNumGame implements Model, Serializable {
         if (input == randomNum) {
             gamestate = false;
             return String.format("Вы угадали число %d. Поздравляем с ПОБЕДОЙ!\n", input);
-        } else if (checkTryCount()) {
+        } else if (checkTryCountDeplete()) {
             return "Вы неугалали и у вас закончились попытки, удачи в следующий раз!";
         } else if (input > randomNum) {
-            return String.format("Загаданное число меньше чем %d\n У вас осталось %d попыток\n", input, tryCount);
+            return String.format("Загаданное число меньше чем %d. У вас осталось %d попыток\n", input, tryCount);
         } else if (input < randomNum) {
-            return String.format("Загаданное число больше чем %d\n У вас осталось %d попыток\n", input, tryCount);
+            return String.format("Загаданное число больше чем %d. У вас осталось %d попыток\n", input, tryCount);
         }
         return "Что-то пошло не так сообщите разработчикам. Спасибо !";
     }
 
-    private boolean checkTryCount() {
+    private boolean checkTryCountDeplete() {
         tryCount -= 1;
         if (tryCount == 0) {
             gamestate = false;
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 }

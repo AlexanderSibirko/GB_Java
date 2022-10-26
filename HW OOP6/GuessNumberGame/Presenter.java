@@ -3,9 +3,9 @@ package GuessNumberGame;
 import SaveLoadSystem.SaveLoader;
 
 public class Presenter<M extends Model, V extends View> {
-    M model;
-    V view;
-    SaveLoader<M> saveLoader;
+    private M model;
+    private V view;
+    private SaveLoader<M> saveLoader;
 
     public Presenter(M m, V v) {
         model = m;
@@ -16,15 +16,15 @@ public class Presenter<M extends Model, V extends View> {
     public void startGame() {
         while (model.isGamestate()) {
             String input = view.getInput("Введите число от 1 до 10 или букву 'S' для сохранения, 'L' для заргузки: ");
-            try {
-                view.printOutput(model.numberInputResult(Integer.parseInt(input)));
-            } catch (Exception e) {
-                if (input.equals("S")) {
-                    saveModel("save.sv", model); //используем единый сейв слот
-                    view.printOutput("Game Saved\n");
-                } else if (input.equals("L")) {
-                    loadModel("save.sv"); //используем единый сейв слот
-                    view.printOutput("Game Loaded\n");
+            if (input.equals("S")) {
+                saveModel("save.sv", model); // используем единый сейв слот
+            } else if (input.equals("L")) {
+                loadModel("save.sv"); // используем единый сейв слот
+            } else {
+                try {
+                    view.printOutput(model.numberInputResult(Integer.parseInt(input)));
+                } catch (Exception e) {
+                    view.printOutput("Неправильный ввод (команада не распознана)\n");
                 }
             }
         }
@@ -33,6 +33,7 @@ public class Presenter<M extends Model, V extends View> {
     private void saveModel(String path, M obj) {
         try {
             saveLoader.saveModel(path, obj);
+            view.printOutput("Game Saved\n");
         } catch (Exception e) {
             view.printOutput(String.format("Save Failed. Error: %s\n", e.toString()));
         }
@@ -41,7 +42,8 @@ public class Presenter<M extends Model, V extends View> {
 
     private void loadModel(String path) {
         try {
-            saveLoader.loadModel(path);
+            model = saveLoader.loadModel(path);
+            view.printOutput("Game Loaded\n");
         } catch (Exception e) {
             view.printOutput(String.format("Load Failed. Error: %s\n", e.toString()));
         }
