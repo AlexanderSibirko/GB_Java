@@ -6,37 +6,37 @@ import JavaArchitectHW3.Figures.ShapesArray;
 public class Program {
     public static void main(String[] args) {
         ShapesArray shapesArray = new ShapesArray();
-
+        ShapeMaker shapeMaker = ShapeMaker.getFactory();
         try {
-            shapesArray.add(ShapeMaker.createCircle(3));    
-            shapesArray.add(ShapeMaker.createCircle(-3));    
+            shapesArray.add(shapeMaker.createCircle(3));    
+            shapesArray.add(shapeMaker.createCircle(-3));    
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
         try {
-            shapesArray.add(ShapeMaker.createRectangle(5,2));
-            shapesArray.add(ShapeMaker.createRectangle(-5,2));
+            shapesArray.add(shapeMaker.createRectangle(5,2));
+            shapesArray.add(shapeMaker.createRectangle(-5,2));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
         try {
-            shapesArray.add(ShapeMaker.createRectangle(5,-2));
+            shapesArray.add(shapeMaker.createRectangle(5,-2));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
         try {
-            shapesArray.add(ShapeMaker.createSquare(5));
-            shapesArray.add(ShapeMaker.createSquare(-5));
+            shapesArray.add(shapeMaker.createSquare(5));
+            shapesArray.add(shapeMaker.createSquare(-5));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
         try {
-            shapesArray.add(ShapeMaker.createTriangle(5,3,4));
-            shapesArray.add(ShapeMaker.createTriangle(5,3,9));
+            shapesArray.add(shapeMaker.createTriangle(5,3,4));
+            shapesArray.add(shapeMaker.createTriangle(5,3,9));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
