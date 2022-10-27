@@ -20,4 +20,20 @@ public class Flash {
     public void Move(Point3D newLocation) {
         this.location = newLocation;
     }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    public Float getPower() {
+        return power;
+    }
+
+    public void setPower(Float power) {
+        this.power = power;
+    }
 }

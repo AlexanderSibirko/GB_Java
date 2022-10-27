@@ -1,37 +1,35 @@
 package JavaArchitectHW1.ModelElements;
 
 public class Color {
-    private int red;
-    private int green;
-    private int blue;
+    private int[] RGB = new int[3];
     
     public Color(int R, int G, int B){
-        this.red = R;
-        this.green = G;
-        this.blue = B;
+        RGB[0] = R;
+        RGB[1] = G;
+        RGB[2] = B;
     }
 
     public int getRed() {
-        return red;
+        return RGB[0];
     }
 
     public void setRed(int red) {
-        this.red = red;
+        RGB[0] = red;
     }
 
     public int getGreen() {
-        return green;
+        return RGB[1];
     }
 
     public void setGreen(int green) {
-        this.green = green;
+        RGB[1] = green;
     }
 
     public int getBlue() {
-        return blue;
+        return RGB[2];
     }
 
     public void setBlue(int blue) {
-        this.blue = blue;
+        RGB[2] = blue;
     }
 }
