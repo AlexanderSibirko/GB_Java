@@ -7,7 +7,7 @@ import java.util.HashSet;
 public class Polygon {
     public ArrayList<Point3D> points;
 
-    public Polygon(){
-        points = new ArrayList<>();
+    public Polygon(ArrayList<Points3D> points){
+        this.points = points;
     }
 }
