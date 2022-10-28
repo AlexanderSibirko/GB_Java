@@ -1,13 +1,13 @@
 package JavaArchitectHW1.ModelElements;
 
-public class Flash {
-    private Point3D location;
+public class LightSource {
+    private Point3D position;
     private Angle3D angle;
     private Color color;
     private Float power;
 
-    public Flash(Point3D location, Angle3D angle, Color color, Float power) {
-        this.location = location;
+    public LightSource(Point3D position, Angle3D angle, Color color, Float power) {
+        this.position = position;
         this.angle = angle;
         this.color = color;
         this.power = power;
@@ -17,8 +17,8 @@ public class Flash {
         this.angle = newAngle;
     }
 
-    public void Move(Point3D newLocation) {
-        this.location = newLocation;
+    public void Move(Point3D newPosition) {
+        this.position = newPosition;
     }
 
     public Color getColor() {
