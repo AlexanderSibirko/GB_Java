@@ -1,24 +1,30 @@
-package JavaArchitectHW3.Figures;
+package JavaArchitectHW3.Figures.Repositories;
 import java.util.ArrayList;
 
+import JavaArchitectHW3.Figures.Shape;
+
 public class ShapesArray {
-    ArrayList<Shape> content;
+    private ArrayList<Shape> shapes;
     
     public ShapesArray() {
-        this.content = new ArrayList<>();
+        this.shapes = new ArrayList<>();
     }
 
     public void add(Shape shape) {
-        content.add(shape);
+        shapes.add(shape);
     }
 
     public void remove(Shape shape) {
-        content.remove(shape);
+        shapes.remove(shape);
+    }
+
+    public ArrayList<Shape> getAllShapes(){
+        return shapes;
     }
 
     public String calcAllPerimetrs(){
         StringBuilder sb = new StringBuilder();
-        for (Shape shape : content) {
+        for (Shape shape : shapes) {
             sb.append(String.format("Фигура: %s %s\n", shape.description(), shape.getPerimetr()));
         }
         return sb.toString();
@@ -26,7 +32,7 @@ public class ShapesArray {
 
     public String calcAllAreas(){
         StringBuilder sb = new StringBuilder();
-        for (Shape shape : content) {
+        for (Shape shape : shapes) {
             sb.append(String.format("Фигура: %s %s\n", shape.description(), shape.getArea()));
         }
         return sb.toString();

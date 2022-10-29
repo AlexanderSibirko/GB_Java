@@ -1,7 +1,7 @@
 package JavaArchitectHW3;
 
-import JavaArchitectHW3.Figures.ShapeMaker;
-import JavaArchitectHW3.Figures.ShapesArray;
+import JavaArchitectHW3.Figures.Makers.ShapeMaker;
+import JavaArchitectHW3.Figures.Repositories.ShapesArray;
 
 public class Program {
     public static void main(String[] args) {

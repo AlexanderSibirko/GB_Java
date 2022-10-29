@@ -2,28 +2,66 @@ package JavaArchitectHW3.Figures;
 
 import JavaArchitectHW3.Figures.Exceptions.IllegalFigureParametrs;
 
-public class Square extends Shape{
-    private double side_length;
+public class Square extends Rectangle{
 
-    public Square(double side_length) throws IllegalFigureParametrs {
-        if (side_length <= 0) {
-            throw new IllegalFigureParametrs("Не получилось создать квадрат. Длинна стороны не может быть отрицательной");
-        }
-        this.side_length = side_length;
+    public Square(double sideLength) throws IllegalFigureParametrs {
+        super(sideLength, sideLength);
+    }
+    
+    /**
+     * При переходе от прямоугольника к квадрату, второе измерение не применяется и просто игнорируется (для выполнения LSP)
+     * @param sideOneLength
+     * @param sideTwoLength
+     * @throws IllegalFigureParametrs
+     */
+    public Square(double sideOneLength, double sideTwoLength) throws IllegalFigureParametrs {
+        super(sideOneLength, sideOneLength);
     }
 
     @Override
     public double calcPerimetr() {
-        return side_length*4;
+        return sideOneLength*4;
     }
 
     @Override
     public double calcArea() {
-        return side_length*side_length;
+        return sideOneLength*sideOneLength;
     }
 
     public String description(){
         StringBuilder sb = new StringBuilder();
-        return sb.append("Это квадрат стороной ").append(side_length).append(".").toString();
+        return sb.append("Это квадрат стороной ").append(sideOneLength).append(".").toString();
     }
+
+    // public double getSide(){
+    //     return super.getSideOneLength(); 
+    // }
+
+    // public void setSide(double sideLength){
+    //     super.setSideOneLength(sideLength);
+    //     super.setSideTwoLength(sideLength);
+    // }
+
+    // @Override
+    // public double getSideOneLength() {
+    //     return super.getSideOneLength();
+    // }
+
+    // @Override
+    // public double getSideTwoLength() {
+    //     return super.getSideOneLength();
+    // }
+
+    // @Override
+    // public void setSideOneLength(double sideOneLength) {
+    //     super.setSideOneLength(sideOneLength);
+    //     super.setSideTwoLength(sideOneLength);
+    // }
+
+    // @Override
+    // public void setSideTwoLength(double sideTwoLength) {
+    //     super.setSideOneLength(sideTwoLength);
+    //     super.setSideTwoLength(sideOneLength);
+    // }
 }
+

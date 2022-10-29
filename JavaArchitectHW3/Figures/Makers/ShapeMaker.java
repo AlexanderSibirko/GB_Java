@@ -1,10 +1,15 @@
-package JavaArchitectHW3.Figures;
+package JavaArchitectHW3.Figures.Makers;
 
+import JavaArchitectHW3.Figures.Circle;
+import JavaArchitectHW3.Figures.Rectangle;
+import JavaArchitectHW3.Figures.Square;
+import JavaArchitectHW3.Figures.Triangle;
 import JavaArchitectHW3.Figures.Exceptions.IllegalFigureParametrs;
 
+/** simple Factory */
 public class ShapeMaker {
 
-    //singleton
+    // singleton
     private static ShapeMaker instance;
     private ShapeMaker(){}
     public static ShapeMaker getFactory(){
@@ -12,7 +17,6 @@ public class ShapeMaker {
     }
 
     public Square createSquare(double side_length) throws IllegalFigureParametrs {
-
         return new Square(side_length);
     }
 

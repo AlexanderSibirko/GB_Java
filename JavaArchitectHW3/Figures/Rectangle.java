@@ -3,38 +3,47 @@ package JavaArchitectHW3.Figures;
 import JavaArchitectHW3.Figures.Exceptions.IllegalFigureParametrs;
 
 public class Rectangle extends Shape {
-    private double side_one_length;
-    private double side_two_length;
+    protected double sideOneLength;
+    protected double sideTwoLength;
 
-    //квадрат, как частный случай прямоугольника
-    public Rectangle(double side_one_length) {
-        this.side_one_length = side_one_length;
-        this.side_two_length = side_one_length;
-    }
-    //прямоугольник
-    public Rectangle(double side_one_length, double side_two_length) throws IllegalFigureParametrs{
-        if (side_one_length <= 0 || side_two_length <= 0) {
-            throw new IllegalFigureParametrs("Не получилось создать прямогульник. Один из размеров был отрицательны.");
+
+    public Rectangle(double sideOneLength, double sideTwoLength) throws IllegalFigureParametrs {
+        if (sideOneLength <= 0 || sideTwoLength <= 0) {
+            throw new IllegalFigureParametrs("Не получилось создать прямогульник/квадрат. Один из размеров был отрицательны.");
         }
-        this.side_one_length = side_one_length;
-        this.side_two_length = side_two_length;
+        this.sideOneLength = sideOneLength;
+        this.sideTwoLength = sideTwoLength;
     }
 
     @Override
     public double calcPerimetr() {
-        return (side_one_length+side_two_length)*2;
-    }
-    @Override
-    public double calcArea() {
-        return side_one_length*side_two_length;
+        return (sideOneLength + sideTwoLength) * 2;
     }
 
-    public String description(){
-        StringBuilder sb = new StringBuilder();
-        if (side_one_length == side_two_length) {
-            return sb.append("Это квадрат со стороной ").append(side_one_length).append(".").toString();
-        } else {
-            return sb.append("Это прямоуголник со сторонами ").append(side_one_length).append(", ").append(side_two_length).append(".").toString();
-        }
+    @Override
+    public double calcArea() {
+        return sideOneLength * sideTwoLength;
     }
+
+    public String description() {
+        StringBuilder sb = new StringBuilder();
+        return sb.append("Это прямоуголник со сторонами ").append(sideOneLength).append(", ").append(sideTwoLength)
+                .append(".").toString();
+    }
+
+    // public double getSideOneLength() {
+    //     return sideOneLength;
+    // }
+
+    // public void setSideOneLength(double sideOneLength) {
+    //     this.sideOneLength = sideOneLength;
+    // }
+
+    // public double getSideTwoLength() {
+    //     return sideTwoLength;
+    // }
+
+    // public void setSideTwoLength(double sideTwoLength) {
+    //     this.sideTwoLength = sideTwoLength;
+    // }
 }
