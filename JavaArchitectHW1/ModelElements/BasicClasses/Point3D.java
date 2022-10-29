@@ -1,4 +1,4 @@
-package JavaArchitectHW1.ModelElements;
+package JavaArchitectHW1.ModelElements.BasicClasses;
 
 public class Point3D {
     private double x;

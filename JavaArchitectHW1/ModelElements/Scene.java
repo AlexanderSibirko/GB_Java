@@ -1,33 +1,32 @@
 package JavaArchitectHW1.ModelElements;
-import java.lang.instrument.IllegalClassFormatException;
-import java.util.List;
+import java.util.HashSet;
 
 public class Scene {
     private HashSet<Camera> cameras;
     private HashSet<LightSource> lightSources;
     private HashSet<PolygonalModel> poligonalModels;
 
-    public void addObject(Object object) throws IllegalClassFormatException {
+    public void addObject(Object object)  throws Exception {
         if (object instanceof Camera) {
-            cameras.add(object);
+            cameras.add((Camera)object);
         } else if (object instanceof LightSource) {
-            lightSources.add(object);
+            lightSources.add((LightSource)object);
         } else if (object instanceof PolygonalModel) {
-            poligonalModels.add(object);
+            poligonalModels.add((PolygonalModel)object);
         } else {
-            throw IllegalClassFormatException("Неправильный класс добавляемого объекта");
+            throw new Exception("Неправильный класс добавляемого объекта");
         }
     }
 
-    public void deleteObject(Object object) throws IllegalClassFormatException {
+    public void deleteObject(Object object) throws Exception {
         if (object instanceof Camera) {
-            cameras.remove(object);
+            cameras.remove((Camera)object);
         } else if (object instanceof LightSource) {
-            lightSources.remove(object);
+            lightSources.remove((LightSource)object);
         } else if (object instanceof PolygonalModel) {
-            poligonalModels.remove(object);
+            poligonalModels.remove((PolygonalModel)object);
         } else {
-            throw IllegalClassFormatException("Неправильный класс добавляемого объекта");
+            throw new Exception("Неправильный класс добавляемого объекта");
         }
     }
 }

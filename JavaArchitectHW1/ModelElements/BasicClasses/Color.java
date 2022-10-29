@@ -1,35 +1,40 @@
-package JavaArchitectHW1.ModelElements;
+package JavaArchitectHW1.ModelElements.BasicClasses;
 
 public class Color {
-    private int[] RGB = new int[3];
-    
-    public Color(int R, int G, int B){
-        RGB[0] = R;
-        RGB[1] = G;
-        RGB[2] = B;
+    private int[] rgb = new int[3];
+
+    public Color(int R, int G, int B) throws IllegalArgumentException {
+        if (R < 0 || R > 255 || G < 0 || G > 255 || B < 0 || B > 255) {
+            throw new IllegalArgumentException(
+                    String.format("Значения цветов должны быть в диапазоне 0-255 (полученные занчения: %d, %d, %d)", R,
+                            G, B));
+        }
+        rgb[0] = R;
+        rgb[1] = G;
+        rgb[2] = B;
     }
 
     public int getRed() {
-        return RGB[0];
+        return rgb[0];
     }
 
     public void setRed(int red) {
-        RGB[0] = red;
+        rgb[0] = red;
     }
 
     public int getGreen() {
-        return RGB[1];
+        return rgb[1];
     }
 
     public void setGreen(int green) {
-        RGB[1] = green;
+        rgb[1] = green;
     }
 
     public int getBlue() {
-        return RGB[2];
+        return rgb[2];
     }
 
     public void setBlue(int blue) {
-        RGB[2] = blue;
+        rgb[2] = blue;
     }
 }
