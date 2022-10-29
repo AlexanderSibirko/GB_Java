@@ -1,26 +1,49 @@
 package JavaArchitectHW3.Figures;
 
-public class Rectangle extends Shape {
-    private double side_one_length;
-    private double side_two_length;
+import JavaArchitectHW3.Figures.Exceptions.IllegalFigureParametrs;
 
-    public Rectangle(double side_one_length, double side_two_length) {
-        this.side_one_length = side_one_length;
-        this.side_two_length = side_two_length;
+public class Rectangle extends Shape {
+    protected double sideOneLength;
+    protected double sideTwoLength;
+
+
+    public Rectangle(double sideOneLength, double sideTwoLength) throws IllegalFigureParametrs {
+        if (sideOneLength <= 0 || sideTwoLength <= 0) {
+            throw new IllegalFigureParametrs("Не получилось создать прямогульник/квадрат. Один из размеров был отрицательны.");
+        }
+        this.sideOneLength = sideOneLength;
+        this.sideTwoLength = sideTwoLength;
     }
 
     @Override
     public double calcPerimetr() {
-        return (side_one_length+side_two_length)*2;
+        return (sideOneLength + sideTwoLength) * 2;
     }
 
     @Override
     public double calcArea() {
-        return side_one_length*side_two_length;
+        return sideOneLength * sideTwoLength;
     }
 
-    public String description(){
+    public String description() {
         StringBuilder sb = new StringBuilder();
-        return sb.append("Это прямоуголник со сторонами ").append(side_one_length).append(", ").append(side_two_length).append(".").toString();
+        return sb.append("Это прямоуголник со сторонами ").append(sideOneLength).append(", ").append(sideTwoLength)
+                .append(".").toString();
     }
+
+    // public double getSideOneLength() {
+    //     return sideOneLength;
+    // }
+
+    // public void setSideOneLength(double sideOneLength) {
+    //     this.sideOneLength = sideOneLength;
+    // }
+
+    // public double getSideTwoLength() {
+    //     return sideTwoLength;
+    // }
+
+    // public void setSideTwoLength(double sideTwoLength) {
+    //     this.sideTwoLength = sideTwoLength;
+    // }
 }
