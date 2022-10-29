@@ -1,11 +1,11 @@
 package JavaArchitectHW1.ModelElements;
 
 public class Camera {
-    private Point3D location;
+    private Point3D position;
     private Angle3D angle;
 
-    public Camera(Point3D location, Angle3D angle) {
-        this.location = location;
+    public Camera(Point3D position, Angle3D angle) {
+        this.position = position;
         this.angle = angle;
     }
 
@@ -13,7 +13,7 @@ public class Camera {
         this.angle = newAngle;
     }
 
-    public void Move(Point3D newLocation) {
-        this.location = newLocation;
+    public void Move(Point3D newPosition) {
+        this.position = newPosition;
     }
 }
