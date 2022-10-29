@@ -1,5 +1,7 @@
 package JavaArchitectHW3.Figures;
 
+import JavaArchitectHW3.Figures.Exceptions.IllegalFigureParametrs;
+
 public class Rectangle extends Shape {
     private double side_one_length;
     private double side_two_length;
@@ -10,7 +12,10 @@ public class Rectangle extends Shape {
         this.side_two_length = side_one_length;
     }
     //прямоугольник
-    public Rectangle(double side_one_length, double side_two_length) {
+    public Rectangle(double side_one_length, double side_two_length) throws IllegalFigureParametrs{
+        if (side_one_length <= 0 || side_two_length <= 0) {
+            throw new IllegalFigureParametrs("Не получилось создать прямогульник. Один из размеров был отрицательны.");
+        }
         this.side_one_length = side_one_length;
         this.side_two_length = side_two_length;
     }

@@ -12,6 +12,10 @@ public class ShapesArray {
         content.add(shape);
     }
 
+    public void remove(Shape shape) {
+        content.remove(shape);
+    }
+
     public String calcAllPerimetrs(){
         StringBuilder sb = new StringBuilder();
         for (Shape shape : content) {
