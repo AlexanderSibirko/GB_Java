@@ -2,12 +2,12 @@ package JavaArchitectHW3.Figures;
 
 public class Square extends Rectangle{
 
-    public Square(double sideLength) throws IllegalArgumentException {
+    public Square(double sideLength) {
         super(sideLength, sideLength);
     }
     
     //при переходе от прямоугольника к квадрату, второе измерение не применяется и просто игнорируется (для выполнения LSP)
-    public Square(double sideOneLength, double sideTwoLength) throws IllegalArgumentException {
+    public Square(double sideOneLength, double sideTwoLength) {
         this(sideOneLength);
     }
 

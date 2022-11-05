@@ -15,20 +15,38 @@ public class ShapeMaker {
         return instance == null ? new ShapeMaker() : instance;
     }
 
-    public Square createSquare(double side_length) throws IllegalArgumentException {
-        return new Square(side_length);
+    public Square createSquare(double sideLength) throws IllegalArgumentException {
+        if (sideLength <= 0) {
+            throw new IllegalArgumentException("Не получилось создать квадрат. Длинна стороны должна быть положительной.");
+        }
+        return new Square(sideLength);
     }
 
-    public Rectangle createRectangle(double side_one_length, double side_two_length) throws IllegalArgumentException {
-        return new Rectangle(side_one_length, side_two_length);
+    public Rectangle createRectangle(double sideOneLength, double sideTwoLength) throws IllegalArgumentException {
+        if (sideOneLength <= 0 || sideTwoLength <= 0) {
+            throw new IllegalArgumentException("Не получилось создать прямогульник. Стороны должны быть положительными.");
+        }
+        return new Rectangle(sideOneLength, sideTwoLength);
     }
 
-    public Circle createCircle(double radius) throws IllegalArgumentException {
+    public Circle createCircle(double radius) {
+        if (radius <= 0) {
+            throw new IllegalArgumentException("Не получилось создать круг. Радиус должен быть положительным.");
+        }
         return new Circle(radius);
     }
 
-    public Triangle createTriangle(double side_one_length, double side_two_length, double side_three_length)
+    public Triangle createTriangle(double sideOneLength, double sideTwoLength, double sideThreeLength)
             throws IllegalArgumentException {
-        return new Triangle(side_one_length, side_two_length, side_three_length);
+        if (sideOneLength <= 0 || sideTwoLength <= 0 || sideThreeLength <= 0) {
+            throw new IllegalArgumentException("Не получилось создать треугольник, одна из сторон отрицательная");
+        }
+
+        if (sideOneLength + sideTwoLength < sideThreeLength
+                || sideTwoLength + sideThreeLength < sideOneLength
+                || sideOneLength + sideThreeLength < sideTwoLength) {
+            throw new IllegalArgumentException("Не получилось создать треугольник, одна из сторон больше суммы двух других");
+        }
+        return new Triangle(sideOneLength, sideTwoLength, sideThreeLength);
     }
 }

@@ -5,10 +5,7 @@ public class Rectangle extends Shape {
     protected double sideTwoLength;
 
 
-    public Rectangle(double sideOneLength, double sideTwoLength) throws IllegalArgumentException {
-        if (sideOneLength <= 0 || sideTwoLength <= 0) {
-            throw new IllegalArgumentException("Не получилось создать прямогульник/квадрат. Один из размеров был отрицательны.");
-        }
+    public Rectangle(double sideOneLength, double sideTwoLength) {
         this.sideOneLength = sideOneLength;
         this.sideTwoLength = sideTwoLength;
     }

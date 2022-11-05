@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import JavaArchitectHW3.Figures.Shape;
 
 public class ShapesArray {
-    private ArrayList<Shape> shapes;
+    protected ArrayList<Shape> shapes;
     
     public ShapesArray() {
         this.shapes = new ArrayList<>();
