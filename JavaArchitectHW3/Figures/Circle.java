@@ -1,13 +1,11 @@
 package JavaArchitectHW3.Figures;
 
-import JavaArchitectHW3.Figures.Exceptions.IllegalFigureParametrs;
-
 public class Circle extends Shape {
     private double radius;
 
-    public Circle(double radius) throws IllegalFigureParametrs {
+    public Circle(double radius) throws IllegalArgumentException {
         if (radius <= 0) {
-            throw new IllegalFigureParametrs("Не получилось создать круг. Радиус должен быть положительным.");
+            throw new IllegalArgumentException("Не получилось создать круг. Радиус должен быть положительным.");
         }
         this.perimetr_naming =  "Длинна окружности:";
         this.radius = radius;

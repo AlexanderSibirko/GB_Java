@@ -1,15 +1,13 @@
 package JavaArchitectHW3.Figures;
 
-import JavaArchitectHW3.Figures.Exceptions.IllegalFigureParametrs;
-
 public class Rectangle extends Shape {
     protected double sideOneLength;
     protected double sideTwoLength;
 
 
-    public Rectangle(double sideOneLength, double sideTwoLength) throws IllegalFigureParametrs {
+    public Rectangle(double sideOneLength, double sideTwoLength) throws IllegalArgumentException {
         if (sideOneLength <= 0 || sideTwoLength <= 0) {
-            throw new IllegalFigureParametrs("Не получилось создать прямогульник/квадрат. Один из размеров был отрицательны.");
+            throw new IllegalArgumentException("Не получилось создать прямогульник/квадрат. Один из размеров был отрицательны.");
         }
         this.sideOneLength = sideOneLength;
         this.sideTwoLength = sideTwoLength;
