@@ -2,9 +2,9 @@ package JavaArchitectHW3.Figures;
 
 
 public class Triangle extends Shape{
-    private double side_one_length;
-    private double side_two_length;
-    private double side_three_length;
+    protected double side_one_length;
+    protected double side_two_length;
+    protected double side_three_length;
     
     public Triangle(double side_one_length, double side_two_length, double side_three_length) throws IllegalArgumentException {
         if (side_one_length <= 0 || side_two_length <= 0 || side_three_length <= 0) {
@@ -35,7 +35,30 @@ public class Triangle extends Shape{
     }
 
     public String description(){
-        StringBuilder sb = new StringBuilder();
-        return sb.append("Это треугольник со сторонами ").append(side_one_length).append(", ").append(side_two_length).append(", ").append(side_three_length).append(".").toString();
+        return "Это треугольник со сторонами " + side_one_length + ", " + side_two_length + ", " + side_three_length + ".";
+    }
+
+    public double getSide_one_length() {
+        return side_one_length;
+    }
+
+    public void setSide_one_length(double side_one_length) {
+        this.side_one_length = side_one_length;
+    }
+
+    public double getSide_two_length() {
+        return side_two_length;
+    }
+
+    public void setSide_two_length(double side_two_length) {
+        this.side_two_length = side_two_length;
+    }
+
+    public double getSide_three_length() {
+        return side_three_length;
+    }
+
+    public void setSide_three_length(double side_three_length) {
+        this.side_three_length = side_three_length;
     }
 }

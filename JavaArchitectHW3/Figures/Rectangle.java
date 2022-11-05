@@ -24,24 +24,23 @@ public class Rectangle extends Shape {
     }
 
     public String description() {
-        StringBuilder sb = new StringBuilder();
-        return sb.append("Это прямоуголник со сторонами ").append(sideOneLength).append(", ").append(sideTwoLength)
-                .append(".").toString();
+        return "Это прямоуголник со сторонами " + sideOneLength + ", " + sideTwoLength +
+                ".";
     }
 
-    // public double getSideOneLength() {
-    //     return sideOneLength;
-    // }
+     public double getSideOneLength() {
+         return sideOneLength;
+     }
 
-    // public void setSideOneLength(double sideOneLength) {
-    //     this.sideOneLength = sideOneLength;
-    // }
+     public void setSideOneLength(double sideOneLength) {
+         this.sideOneLength = sideOneLength;
+     }
 
-    // public double getSideTwoLength() {
-    //     return sideTwoLength;
-    // }
+     public double getSideTwoLength() {
+         return sideTwoLength;
+     }
 
-    // public void setSideTwoLength(double sideTwoLength) {
-    //     this.sideTwoLength = sideTwoLength;
-    // }
+     public void setSideTwoLength(double sideTwoLength) {
+         this.sideTwoLength = sideTwoLength;
+     }
 }
